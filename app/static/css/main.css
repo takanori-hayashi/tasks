@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+.edit.col,
+.create.col {
+  float: none;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.c-button-delete {
+  display: inline-block;
+}
+
+.alert {
+  padding: 8px 16px;
+  border: 1px solid #64b5f6;
+}
+
+.alert p {
+  margin: 0;
+}

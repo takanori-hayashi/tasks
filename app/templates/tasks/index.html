@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}All{% endblock %}
+
+{% block content %}
+
+<h3 class="title">All Tasks</h3>
+
+<table class="responsive-table">
+  <thead>
+    <tr>
+        <th>id</th>
+        <th>title</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for task in tasks %}
+    <tr>
+      <td>{{ task['id'] }}</td>
+      <td><a href="{{ url_for('tasks.show', id=task['id']) }}">{{ task['title'] }}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

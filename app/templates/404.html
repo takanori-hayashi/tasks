@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+
+{% block title %}page not found{% endblock %}
+
+{% block content %}
+<h2>404 page not found</h2>
+<a class="waves-effect waves-light btn blue" href="{{ url_for('tasks.index') }}">Home</a>
+{% endblock %}

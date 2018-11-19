@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}{% endblock %} | MyTasks</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+  <div class="row"> 
+    <nav class="blue darken-4">
+      <div class="col s12">
+        <div class="nav-wrapper">
+          <a href="{{ url_for('tasks.index') }}" class="brand-logo">MyTasks</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+              <a href="{{ url_for('tasks.index') }}">Tasks</a>
+            </li>
+            <li>
+              <a class="waves-effect waves-light btn blue"
+                href="{{ url_for('tasks.create') }}"><i class="material-icons left">add</i>New Task</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert blue lighten-5">
+      {% for message in messages %}
+      <p>{{ message }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    <!-- ここにメインコンテンツを書く -->
+    {% endblock %}
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+  </script>
+</body>
+</html>
